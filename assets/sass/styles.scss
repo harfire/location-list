@@ -8,3 +8,11 @@ body {
   background: #ffffff;
   color: #444444;
 }
+
+.title-height {
+  height: 45px;
+  overflow: hidden !important;
+  padding: 0;
+  margin: 0.75em !important;
+  align-items: flex-start;
+}
