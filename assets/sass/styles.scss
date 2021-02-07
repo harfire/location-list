@@ -1,0 +1,80 @@
+@import "./variables.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #ffffff;
+  color: #444444;
+  scroll-behavior: smooth;
+}
+
+.container {
+  min-width: 1024px;
+}
+
+.title-height {
+  height: 45px;
+  overflow: hidden !important;
+  padding: 0;
+  margin: 0.75em !important;
+  align-items: flex-start;
+}
+
+.cities {
+  .thumbnail-city {
+    footer {
+      span {
+        font-weight: 500;
+      }
+    }
+    &:hover {
+      div.card {
+        transition: all 0.1s ease-in-out;
+        transform: scale(1.025);
+      }
+      footer {
+        span {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+.place-item {
+  max-height: 69vh;
+  overflow: auto;
+
+  .card {
+    &.items-list {
+      min-height: 350px;
+
+      &:hover {
+        transition: all 0.1s ease-in-out;
+        transform: scale(1.025);
+      }
+
+      &.clicked {
+        box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 2px rgba(53, 176, 167, 0.75);
+        background-color: rgba(53, 176, 167, 0.1);
+      }
+    }
+    .card-content {
+      padding: 1rem;
+
+      .content {
+        .tag-cont {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+      }
+
+      .city-info {
+        height: 18px;
+      }
+    }
+  }
+}

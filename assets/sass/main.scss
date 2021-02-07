@@ -1,0 +1,14 @@
+// Custom Variable
+@import "./variables.scss";
+
+// Main Bulma
+@import "bulma/bulma";
+
+// Custom Class
+@import "./styles.scss";
+
+// Helper Class
+@import "./helpers/margin.scss";
+@import "./helpers/padding.scss";
+@import "./helpers/ellipsis-text.scss";
+@import "./helpers/commons.scss";
