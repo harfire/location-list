@@ -46,10 +46,10 @@ function Places() {
   return (
     <>
       <Head>
-        <title>{selectedPlace.cityName}</title>
-        <meta name="description" content={`Rukita sekitar ${selectedPlace.name}`}></meta>
-        <meta property="og:title" content={selectedPlace.cityName} key="title" />
-        <meta property="og:description" content={`Rukita sekitar ${selectedPlace.name}`} key="ogdesc" />
+        <title>{selectedPlace?.cityName}</title>
+        <meta name="description" content={`Rukita sekitar ${selectedPlace?.name}`}></meta>
+        <meta property="og:title" content={selectedPlace?.cityName} key="title" />
+        <meta property="og:description" content={`Rukita sekitar ${selectedPlace?.name}`} key="ogdesc" />
       </Head>
 
       <div className="columns is-multiline">
@@ -68,7 +68,7 @@ function Places() {
             <div className="column is-half items-cont">
               <div className="columns is-multiline place-item">
                 <div className="column is-half">
-                  <Title title="Daerah Sekitar" subTitle={selectedPlace.name} />
+                  <Title title="Daerah Sekitar" subTitle={selectedPlace?.name} />
                 </div>
                 <div className="column is-half has-text-right">
                   <Link
