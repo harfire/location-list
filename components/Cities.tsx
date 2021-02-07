@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import Loading from 'components/common/Loading';
 import ThumbnailCity from 'components/common/ThumbnailCity';
 import { getCities } from 'services/services';
@@ -22,6 +23,24 @@ function Main() {
 
   return (
     <>
+      <Head>
+        <title>Lokasi - Rukita | Coliving Nyaman di Tengah Kota | Cari Kost dan Apartemen di Sini</title>
+        <meta
+          name="description"
+          content="Lokasi - Rukita | Coliving Nyaman di Tengah Kota | Cari Kost dan Apartemen di Sini"
+        ></meta>
+        <meta
+          property="og:title"
+          content="Lokasi - Rukita | Coliving Nyaman di Tengah Kota | Cari Kost dan Apartemen di Sini"
+          key="title"
+        />
+        <meta
+          property="og:description"
+          content="Lokasi - Rukita | Coliving Nyaman di Tengah Kota | Cari Kost dan Apartemen di Sini"
+          key="ogdesc"
+        />
+      </Head>
+
       {!!cities?.length ? (
         <>
           <Title title="Jelajahi" subTitle="Area Populer" />

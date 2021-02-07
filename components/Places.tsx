@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import type { Place, Building } from 'types';
 import { getPlaces } from 'services/services';
 import Link from 'next/link';
@@ -43,49 +44,58 @@ function Places() {
   }, [query, places]);
 
   return (
-    <div className="columns is-multiline">
-      {!isPageReady ? (
-        <div className="column has-text-centered is-full">
-          <Loading></Loading>
-        </div>
-      ) : (
-        <PlaceProvider
-          value={{
-            places,
-            selectedBuilding,
-            setSelectedBuilding
-          }}
-        >
-          <div className="column is-half items-cont">
-            <div className="columns is-multiline place-item">
-              <div className="column is-half">
-                <Title title="Daerah Sekitar" subTitle={selectedPlace.name} />
-              </div>
-              <div className="column is-half has-text-right">
-                <Link
-                  href={{
-                    pathname: `/location/`
-                  }}
-                >
-                  <a onClick={() => {}} className="button is-outlined is-primary">
-                    Back
-                  </a>
-                </Link>
-              </div>
-            </div>
+    <>
+      <Head>
+        <title>{selectedPlace.cityName}</title>
+        <meta name="description" content={`Rukita sekitar ${selectedPlace.name}`}></meta>
+        <meta property="og:title" content={selectedPlace.cityName} key="title" />
+        <meta property="og:description" content={`Rukita sekitar ${selectedPlace.name}`} key="ogdesc" />
+      </Head>
 
-            <div className="columns is-multiline place-item">
-              {selectedPlace?.buildings?.map((building: Building) => (
-                <PlaceItem building={building} key={building.id} />
-              ))}
+      <div className="columns is-multiline">
+        {!isPageReady ? (
+          <div className="column has-text-centered is-full">
+            <Loading></Loading>
+          </div>
+        ) : (
+          <PlaceProvider
+            value={{
+              places,
+              selectedBuilding,
+              setSelectedBuilding
+            }}
+          >
+            <div className="column is-half items-cont">
+              <div className="columns is-multiline place-item">
+                <div className="column is-half">
+                  <Title title="Daerah Sekitar" subTitle={selectedPlace.name} />
+                </div>
+                <div className="column is-half has-text-right">
+                  <Link
+                    href={{
+                      pathname: `/location/`
+                    }}
+                  >
+                    <a onClick={() => {}} className="button is-outlined is-primary">
+                      Back
+                    </a>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="columns is-multiline place-item">
+                {selectedPlace?.buildings?.map((building: Building) => (
+                  <PlaceItem building={building} key={building.id} />
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="column is-half maps-cont">
-            <Maps data={selectedPlace?.buildings}></Maps>
-          </div>
-        </PlaceProvider>
-      )}
-    </div>
+            <div className="column is-half maps-cont">
+              <Maps data={selectedPlace?.buildings}></Maps>
+            </div>
+          </PlaceProvider>
+        )}
+      </div>
+    </>
   );
 }
 
